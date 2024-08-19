@@ -23,9 +23,9 @@ def add_new_customer_order(orders):
 def display_customer_orders(orders):
     print("")
     found = False
-    for i, order in enumerate(orders):
+    for i, (name, product, quantity) in enumerate(orders):
         print(colored(f"\nOrder {i + 1}:", attrs=["bold"])) 
-        print("Customer Name: ", order[0], " \nProduct: ", order[1], " \nQuantity: ", order[2])
+        print("Customer Name: ", name, " \nProduct: ", product, " \nQuantity: ", quantity)
         found = True
     if not found:
         print("There are no orders yet.")
