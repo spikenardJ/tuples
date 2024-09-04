@@ -3,7 +3,7 @@
 # Task 1: Library System Enhancement
 
 def add_new_book(library):
-    for new_book in library:
+    try:
         title = input("Enter the title of the book: ").title()
         author = input("Enter the author of the book: ").title()
         new_book = (title, author)
@@ -12,19 +12,19 @@ def add_new_book(library):
             print(f"{title} already exists in library.")
             return
         else:
-            library.append((new_book))
+            library.append(new_book)
             print(f"{title} has been added to library successfully.")
             return
+    except Exception as e:
+        print(f"An error {e} occured.")
 
 def display_library_books(library):
     print("")
     print("Library")
     print("-------")
-    found = False
     for i, book in enumerate(library):
         print(f"Book {i + 1}: \n  Title: ", book[0], "  Author: ", book[1])
-        found = True
-    if not found:
+    if not book:
         print("No books were found.")
 
 def main():
